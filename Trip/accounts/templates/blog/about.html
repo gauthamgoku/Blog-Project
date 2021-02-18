@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip to Incredible India : ABOUT</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<img src="{% static "image/aboutbackground.jpg" %}" alt="" class="bg-stretch">
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>About </h2>
+					<p>This blog mainly deals with the travellers those who are willing to travel new places and 
+					   explore new things in healthy manner. In this blog users can find the information about the
+					   new places in India and what to visit, where to stay and where can we eat. By this blog the
+					   users can read the articles published by the author those who explored the places already. 
+					   Users will get knowledge in advance about the things in the new places without visiting there 
+					   and they can ask help to the experienced people who has already explored the place. In this 
+					   blog we are publishing the articles relating to the main places in India to visit, places to 
+					   stay and eat. The authors will publish their articles after experiencing only. So this blog is
+					   useful not only for the places to visit but also like the best things over there in all aspects 
+					   such as food, shelter, culture etc.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+</body>
+</html>
+
+  {% endblock %}

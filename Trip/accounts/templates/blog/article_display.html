@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% load static %}
+{% block body %}
+
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Articles</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
+	
+
+	<link rel="stylesheet" href="{% static 'article/css/style.css' %}">
+
+	</head>
+	<body>
+
+		<header id="fh5co-header" role="banner">
+			<div class="container text-center">
+				<div id="fh5co-logo">
+					<section class="visual">
+						<h4 style="font-size: 50px;">ARTICLES </h4>
+							<center><img src="{% static 'image/india.jpg' %}" alt="" class="bg-stretch">
+							<p style="font-size: 20px;font-weight: bold;">India is a country rich in cultural heritage. ...
+								Officially recognised by the UN and the United Nations Educational Scientific and Cultural Organisation,
+								also known as UNESCO, a World Heritage Site is classified as a natural or man-made area that is of international
+								importance and which requires special protection.</p></center>
+					</section>
+				</div>
+			</div>
+		</header>
+		<!-- END #fh5co-header -->
+
+		<div style="float : right">
+			<select name="filter" id="filter">
+				<option>Filter</option>
+				<option value="/comment/newest_articles">Newest</option>
+				<option value="/comment/oldest_articles">Oldest</option>
+			</select>
+		</div>
+		<div class="container-fluid pt70 pb70">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+				{% for art in article_fetch %}
+				<div class="fh5co-project masonry-brick">
+					<div class="card">
+						<a class="nav-link" href="/articles/{{ art.tittle }}/" ><img style='width: 50%;' src="/static/{{ art.image }}" alt="Card image cap"></a>
+						<div class="card-body w3-padding w3-xlarge w3-text-orange">
+						  <h5 class="card-title">{{ art.tittle }}</h5>
+							<p>{{art.snippet}}</p>
+						 <p class="card-text"><small class="text-muted">{{art.post_time}}<br></small>&nbsp;&nbsp;&nbsp;
+			
+						  <p class="card-text"><small class="text-muted">Author<br>{{ art.user }}</small>&nbsp;&nbsp;&nbsp;							  
+						  	{% if request.user.is_superuser or request.user == art.user %}
+							  <span><a href="delete/{{ art.id }}" class="glyphicon glyphicon-trash" title="Delete"></a></span>&nbsp;&nbsp;
+							  <span><a href="/articles_edit/{{ art.id }}/" class="material-icons" title="Edit">mode_edit</a></span>
+							  {% endif %}
+						  </p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+		<!-- END .container-fluid -->
+
+	<!-- MAIN JS -->
+	<script src="{% static 'article/js/main.js' %}"></script>
+	<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+	<script src="{% static 'js/velocity.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
+
+	</body>
+</html>
+<script>
+    document.getElementById("filter").onchange = function() {
+        if (this.selectedIndex!==0) {
+            window.location.href = this.value;
+        }
+    };
+</script>
+{% endblock %}

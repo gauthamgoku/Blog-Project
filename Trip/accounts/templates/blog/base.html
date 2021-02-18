@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Trip to Incredible India!</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        {# Fonts#}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+
+
+
+<body>
+
+
+  <!-- Nav bar -->
+    <section id="title">
+          <!-- Nav Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+
+          <a class="navbar-brand"  class="nav-link" href="/">Trip To Incredible India!</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                  <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                {% endif %}
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'articles' %}">Articles</a>
+                {% if request.user.is_staff or request.user.is_superuser%}
+                 <li class="nav-item">
+                <a class="nav-link" href="{% url 'custom_article' %}">Custom Articles</a>
+                {% endif %}
+
+
+            </ul>
+
+
+        </nav>
+
+       </section>
+
+
+      </ul>
+  </div>
+</nav>
+
+{% block body%}
+
+{% endblock %}
+<!--  Sri cod -->
+<!--Footer section  -->
+
+<footer id="footer">
+<i class="social-icon fab fa-facebook-f"></i>
+<i class=" social-icon fab fa-twitter"></i>
+<i class="social-icon fab fa-instagram"></i>
+<i class="social-icon fas fa-envelope"></i>
+<p>© Copyright 2019 Trip To Incredible India </p>
+
+</body>
+</html>

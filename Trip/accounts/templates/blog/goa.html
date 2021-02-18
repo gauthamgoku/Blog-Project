@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip to Incredible India : Goa</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<img src="{% static 'image/goa.jpg' %}" alt="" class="bg-stretch">
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>Goa</h2>
+					<p>Goa is a dream tourist destination for all the tourists visiting India.
+					This beautiful coastal tourist destination is the most enchanting place in 
+					the Western Ghats in India with its verdant green stretches of land and 
+					natural picture perfect landscapes.Goa also called "Queen of the Beaches". 
+					It is also a bird watcher's paradise; epicentre of water and adventure sports, 
+					and is home to some of the most captivating waterfalls in India. The 
+					distinguishing feature of Goa tour is the Coco/Sunny beaches, which are small 
+					white sand banks by the seashore. The religious tourists can find a pleasant 
+					refuge at the ancient temples and churches in Goa. The Goa tour renders incomplete 
+					without your participation in the Goa Carnival famous for its fun, frolic and music. 
+					When it comes to the exquisite cuisine of Goa, then the tourists can go for the simple 
+					yet spicy seafood, fish, prawns, crabs and feni/gin. One can also coincide the Goa 
+					tour with the local Shimoga festival, a weeklong festival of colours confined only 
+					to Goa. The visitors can try their luck at the world-class casinos and also enjoy the 
+					vibrant nightlife characterised by the rave parties in Goa.</p>	
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+</body>
+</html>
+
+
+  {% endblock %}
+

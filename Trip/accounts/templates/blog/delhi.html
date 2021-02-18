@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip to Incredible India : Delhi</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<img src="{% static "image/Delhi 1.jpg" %}" alt="" class="bg-stretch">
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>Delhi</h2>
+
+					<p>The remarkable Indian Capital was architecturally designed by the British architect Edwin Lutyens and was named after him. 
+					   It has a pleasant contrast to the twisted streets of Old Delhi. Enriched with history and culture, the impressive avenues 
+					   and imperial buildings of New Delhi are included in the list of attractions. Humayun’s Tomb, Gandhi Ji's Delhi home, the 
+					   site where he was assassinated are all located in New Delhi that draws a large number of tourists every year. Akshardham 
+					   Temple, India Gate and Taj Mahal  are some of the major attractions of New Delhi. Various shopping malls and local markets 
+					   are there for the locals and the visitors, providing them a wide option to shop in the city. Other options of entertainment 
+					   are also available in the city such as discs, cafes, cinema halls. Wide options for eating out in the city are there as the 
+					   capital city houses numerous eating outlets and restaurants serving relishing and traditional cuisines. If you are planning 
+					   to visit Delhi, know properly about the city before packing your travel bags. We will help you to have in depth knowledge 
+					   about the city and will give you travel tip as well.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+</body>
+</html>
+
+
+  {% endblock %}

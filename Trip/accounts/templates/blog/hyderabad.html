@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip to Incredible India : Hyderabad</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<img src="{% static 'image/Hyderabad2.jpg' %}" alt="" class="bg-stretch">
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>Hyderabad</h2>
+					<p>Hyderabad is known as The City of Pearls, as once it was the only global centre
+					   for trade of large diamonds, emeralds and natural pearls. Many traditional and
+					   historical bazaars are located around the city. The Laad Bazaar situated near
+					   Charminar has shops that sell pearls, jewellery and products such as silverware,
+					   Nirmal, Kalamkaripaintings and artefacts, bidriware, lacquer bangles studded with
+					   stones, saris, handwoven materials in silk and cotton. Here there are famous
+					   historical sites including Charminar, UNESCO Asia Pacific Heritage site of the
+					   Chowmahalla Palace, Salar Jung Museum (among the world's largest private collection
+					   museums) as well as art galleries, libraries, sports complexes, museums and theaters.
+					   Mecca Masjid, Golconda Fort, Ramoji Film City are some of the other tourist attractions
+					   in Hyderabad.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+</div>
+</body>
+</html>
+
+
+  {% endblock %}

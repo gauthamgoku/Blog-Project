@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trip to Incredible India : MUMBAI</title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	
+</head>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<img src="{% static 'image/mumbai2.jpg' %}" alt="" class="bg-stretch">
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>Mumbai</h2>
+					<p>Mumbai is what the Indians affectionately call - the 'City of Dreams'. This fabulous 
+					   city is not only the financial capital of India that serves as the center of all trade 
+					   and investments, but also a cultural center. Mumbai is where you can possess the most 
+					   distinguished designer labels and products from various fashion houses that flood the 
+					   busy malls. This is the one place where glamour is not an uncommon word and is reflected 
+					   ostentatiously in the Bollywood film industry. Take a look at the beaches in Mumbai to 
+					   witness some of God's amazing miracles- the magnificent sunsets over the Arabian Sea, which 
+					   is a dream-like vision. In Mumbai, night is when the day truly begins, which is why Mumbai 
+					   is also referred to as the 'city that never sleeps'. Some of the well-known tourist attractions 
+					   in India are found here in Mumbai. The 'Gateway of India' situated in Colaba is a renowned 
+					   monument built in the Hindu-Muslim styles of architecture to honor King George V and Queen Mary. 
+					   Take a peek into the world of Hindi cinema by visiting 'Film City', which is located in Goregaon. 
+					   If you like water theme parks, then you must visit 'Essel World and Water Kingdom' for a day of 
+					   complete adventure. Take part in the massive festivities of 'Ganesh Chathurthi,' at the 'Siddhivinayak 
+					   Temple' and fulfill your dreams with the blessings of 'Lord Ganesh'. One of the finest museums in 
+					   India, the 'Prince of Wales Museum' features rare artworks, sculptures, coins and lots more. Explore 
+					   this extraordinary city and take home an unforgettable, typical 'Mumbai' experience. See it to 
+					   believe it!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</div>
+</body>
+</html>
+
+  {% endblock %}

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block body%}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% for art in article_fetch %}
+    <title>{{ art.tittle }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+	.comment {
+    margin: 20px 0px 20px 20px;
+}
+</style>
+<body>
+<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+				</nav>
+			</div>
+		</header>
+	<section class="visual">
+		<center><img style='width: 50%;' src="/static/{{ art.image }}" alt="" class="bg-stretch"></center>
+	</section>
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="text-box col-md-offset-1 col-md-10">
+					<h2>{{ art.tittle }}</h2>
+					<p>{{ art.article }}</p><br>
+					<h4 class="timeStamp">Posted By :{{ art.user }}</h4> {{ art.post_time }}</h3>
+				</div>
+			</div><br>
+			<div class="row">
+				<p><b style="padding-right: 244px;">Your Comment Below :</b></p>
+				<select name="filter" id="filter">
+					<option>Filter</option>
+					<option value="/comment/newest_comment/{{ art.tittle }}">Newest</option>
+					<option value="/comment/oldest_comment/{{ art.tittle }}">Oldest</option>
+				</select>
+			</div>
+            <div>
+
+				<div class="comment">
+					{% for comment in article_comment %}
+					{% if art.tittle == comment.tittle %}
+						<div>
+							{% if not comment.approved_comment == False %}
+							<strong>{{ comment.username }} : </strong>
+							<span>{{ comment.article_comment }}</span> <br>
+							<span class="timeStamp">{{ comment.comment_time }}</span>
+							{% elif request.user.is_superuser or request.user == art.user %}
+								<div>
+									{% if not comment.approved_comment == True or request.user.is_superuser or request.user == art.user %}
+									<strong>{{ comment.username }} : </strong>
+									<span>{{ comment.article_comment }}{{ comment.approved_comment }} </span>
+										<a class="btn btn-default" href="/comment/{{ comment.id }}/remove/{{ comment.tittle }}/"><span class="glyphicon glyphicon-trash"></span></a>
+										<a class="btn btn-default" href="/comment/{{ comment.id }}/approve/{{ comment.tittle }}/"><span class="glyphicon glyphicon-ok"></span></a>
+									<br>
+									<span class="timeStamp">{{ comment.comment_time }}</span>
+									{% endif %}
+
+								</div>
+								{% endif %}
+						</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+                <br>
+				<div>
+					<p><b>Post your comment below :</b></p>
+					<form method="post" action="{% url 'comments' %}">
+						{% csrf_token %}
+						<textarea rows ="2" cols="52" name="comment"></textarea>
+						<input type="hidden" name="tittle" value="{{ art.tittle }}">
+						<input type="hidden" name="username" value="{{ user.get_username }}">
+						<input type="submit" name="submit" value="Submit">
+					</form>
+
+				</div>
+            </div>
+		</div>
+	</section>
+</div>
+</body>
+{% endfor %}
+</html>
+<script>
+    document.getElementById("filter").onchange = function() {
+        if (this.selectedIndex!==0) {
+            window.location.href = this.value;
+        }
+    };
+</script>
+{% endblock %}

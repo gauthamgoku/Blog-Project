@@ -1,0 +1,96 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block body %}
+
+<span class="border border-white">
+<section id ="main">
+
+  <div class="jumbotron p-4 p-md-5 text-dark rounded bg-white">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Trip to Incredible India</h1>
+        <p class="lead my-3">Incredible India (styled as Incredıble!ndıa) is the name of an international tourism campaign maintained by the Government
+         of India since 2002, to promote tourism in India.</p>
+      </div>
+    </div>
+
+</section>
+</span>
+
+
+<section id ="cardg">
+<span class="border border-primary">
+<div class="card-group">
+  <div class="card">
+    <a class="nav-link" href="{% url 'mumbai' %}" ><img class="card-img-top" class="nav-link" href="{% url 'mumbai' %}" src="{% static 'image/mumbai2.jpg' %}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Mumbai</h5>
+      <p class="card-text">This is the land of Bollywood...</p>
+
+    </div>
+  </div>
+  <div class="card">
+    <a class="nav-link" href="/hyderabad/" ><img class="card-img-top" src="{% static 'image/Hyderabad2.jpg' %}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Hyderabad</h5>
+      <p class="card-text">Hyderabad is a foodie paradise.</p>
+
+    </div>
+  </div>
+  <div class="card">
+    <a class="nav-link" href="{% url 'goa' %}" ><img class="card-img-top" src="{% static 'image/Goa.jpg' %}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Goa</h5>
+      <p class="card-text">Escape to Goa...</p>
+
+    </div>
+  </div>
+  <div class="card">
+    <a class="nav-link" href="{% url 'delhi' %}" ><img class="card-img-top" src="{% static 'image/Delhi.jpg' %}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">Delhi</h5>
+      <p class="card-text">The sultanate of Delhi.</p>
+
+    </div>
+  </div>
+</div>
+<div style="float: right;padding-right: 600px !important;">
+    <span class="border border-primary">
+        <h4>ARTICLES</h4>
+        <div style="float : right">
+			<select name="filter" id="filter">
+				<option>Filter</option>
+				<option value="/comment/newest_articles">Newest</option>
+				<option value="/comment/oldest_articles">Oldest</option>
+			</select>
+		</div>
+		<div class="container-fluid pt70 pb70">
+			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
+				{% for art in article_fetch %}
+				<div class="fh5co-project masonry-brick">
+					<div class="card">
+						<a class="nav-link" href="/articles/{{ art.tittle }}/" ><img style='width: 20%;' src="/static/{{ art.image }}" alt="Card image cap"></a>
+						<div class="card-body w3-padding w3-xlarge w3-text-orange">
+						  <h5 class="card-title">{{ art.tittle }}</h5>
+							<p>{{art.snippet}}</p>
+						 <p class="card-text"><small class="text-muted">{{art.post_time}}<br></small>&nbsp;&nbsp;&nbsp;
+
+						  <p class="card-text"><small class="text-muted">Author<br>{{ art.user }}</small>&nbsp;&nbsp;&nbsp;
+
+						  </p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+
+    </span>
+</div>
+
+</span>
+</section>
+</span>
+<br>
+
+
+{% endblock %}
